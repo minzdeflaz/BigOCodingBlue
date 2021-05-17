@@ -1,23 +1,23 @@
-n = int(input())
-nums = list(map(int, input().split()))
-input()
-def solve(inp):
+def solve(n):
+  inp = list(map(int, input().split()))
   stack = []
-  i = 1
-  while i < len(inp):
-    print(inp, i)
+  newOrder = []
+  for i in range(1, n):
     if inp[i - 1] > inp[i]:
       stack.append(inp[i - 1])
-      inp.pop(i - 1)
-      continue
-    elif len(stack) > 0:
-      if inp[i - 1] < stack[-1] and inp[i] > stack[-1]:
-        inp.append(stack.pop())
-        continue
-    i += 1
-
+    else:
+      if len(newOrder) > 0 and len(stack) > 0:
+        if newOrder[-1] < stack[-1] and inp[i - 1] > stack[-1]:
+          newOrder.append(stack.pop())
+        else:
+          newOrder.append(inp[i - 1])
+  
   if len(stack) == 0:
     return 'yes'
   else:
     return 'no'
-print(solve(nums))
+n = int(input())
+while n != 0:
+  print(solve(n))
+  n = int(input())
+
