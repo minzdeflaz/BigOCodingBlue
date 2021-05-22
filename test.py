@@ -1,2 +1,2 @@
-arr = [1,2,3,4]
-print(arr.pop())
+arr = [[] for _ in range(10)]
+print(arr) 
