@@ -1,3 +1,4 @@
+# Source: https://codeforces.com/problemset/problem/149/A
 k = int(input())
 nums = list(map(int,input().split()))
 nums.sort(reverse=True)
